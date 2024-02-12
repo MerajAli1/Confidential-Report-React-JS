@@ -46,23 +46,6 @@ export default function BasicModal({ data }) {
     console.log(data)
 
     const updateTeachingData = async () => {
-        const teachingObj = {
-            facultyDept,
-            annualSpecial,
-            reportPeriod,
-            sendTo,
-            name,
-            designation,
-            academicQualification,
-            dob,
-            totalService,
-            language,
-            training,
-            Post,
-            Period,
-            payAndScale,
-            time: new Date()
-        }
         const nonTeachingObj = {
             facultyDept,
             annualSpecial,
@@ -80,7 +63,6 @@ export default function BasicModal({ data }) {
             payAndScale,
             time: new Date()
         }
-        await updateDoc(doc(db, "teachingStaff", data.id), teachingObj)
         await updateDoc(doc(db, "nonTeachingStaff", data.id), nonTeachingObj)
     }
     return (

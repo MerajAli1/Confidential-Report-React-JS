@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../firebaseConfig/firebase';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal/Modal'
+import NonTeachModal from '../Modal/NonTeachModal'
 import { Button } from '@mui/material';
 const ReportData = () => {
     const [teachingData, setTeachingData] = useState([])
@@ -93,6 +94,7 @@ const ReportData = () => {
                             <th>Period</th>
                             <th>Pay And Scale</th>
                             <th>Edit Button</th>
+                            <th>Approve Button</th>
                         </tr>
                     </thead>
 
@@ -119,7 +121,7 @@ const ReportData = () => {
                                             <td>{e.Period}</td>
                                             <td>{e.payAndScale}</td>
                                             <td><button onClick={() => updateData(e)}><Modal data={data} /></button></td>
-                                            <button onClick={() => approvedTeachingBtn(e.id)}>Approve</button>
+                                            <td><Button variant='contained' onClick={() => approvedTeachingBtn(e.id)}>Approve</Button ></td>
                                         </tr>
                                     ) : ""
                                 )
@@ -180,7 +182,7 @@ const ReportData = () => {
                                             <td>{e.Post}</td>
                                             <td>{e.Period}</td>
                                             <td>{e.payAndScale}</td>
-                                            <td><button onClick={() => updateData(e)}><Modal data={data} /></button></td>
+                                            <td><button onClick={() => updateData(e)}><NonTeachModal data={data} /></button></td>
                                             <td><Button variant='contained' onClick={() => approvedNonTeachingBtn(e.id)}>Approve</Button></td>
                                         </tr>
                                     ) : ""

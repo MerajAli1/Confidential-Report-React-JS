@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../firebaseConfig/firebase';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal/Modal'
+import NonTeachModal from '../Modal/NonTeachModal'
 const ViceChancellor = () => {
     const [teachingData, setTeachingData] = useState([])
     const [nonTeachingData, setNonTeachingData] = useState([])
@@ -170,7 +171,7 @@ const ViceChancellor = () => {
                                             <td>{e.Post}</td>
                                             <td>{e.Period}</td>
                                             <td>{e.payAndScale}</td>
-                                            <td><button onClick={() => updateData(e)}><Modal data={data} /></button></td>
+                                            <td><button onClick={() => updateData(e)}><NonTeachModal data={data} /></button></td>
                                             {/* <button onClick={()=>approvedBtn(e.id)}>Approve</button> */}
                                         </tr>
                                     ) : ""
